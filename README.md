@@ -1,3 +1,5 @@
-# Thread Pool Implementation  
+# Virtual Memory, Swapping, and Page Replacement - xv6
 
-This project demonstrates a custom thread pool implemented in C using the pthread library. The thread pool efficiently manages concurrent task execution with mutex locks and condition variables for synchronization. Tasks are dynamically queued and executed by worker threads. The implementation supports safe thread shutdown and resource deallocation. Ideal for learning multi-threaded programming and synchronization concepts in C.  
+This project focuses on implementing and enhancing virtual memory management in the xv6 operating system, including functionalities such as multilevel page tables, page swapping, and page replacement algorithms (FIFO and LRU). The goal is to optimize memory utilization and improve system performance.
+
+Key implementations include a `vmprint` function for visualizing page tables, a `madvise` syscall for memory usage hints, and custom FIFO and LRU page replacement algorithms. The project was developed and tested using Docker with a RISC-V xv6 environment.
