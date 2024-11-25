@@ -1,0 +1,70 @@
+ument is of type ‘long unsigned int’
+   36 | int madvise(void *base, int len, int advise);
+      |             ~~~~~~^~~~
+user/custom_5.c:32:24: warning: passing argument 1 of ‘madvise’ makes pointer from integer without a cast [-Wint-conversion]
+   32 |   madvise((uint64) ptr + 3*PG_SIZE, PG_SIZE,  MADV_UNPIN); //unpin 6
+      |                        ^
+      |                        |
+      |                        long unsigned int
+In file included from user/custom_5.c:3:
+./user/user.h:36:19: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+   36 | int madvise(void *base, int len, int advise);
+      |             ~~~~~~^~~~
+user/custom_5.c:35:24: warning: passing argument 1 of ‘madvise’ makes pointer from integer without a cast [-Wint-conversion]
+   35 |   madvise((uint64) ptr + 3*PG_SIZE, PG_SIZE,  MADV_DONTNEED); //dontneed 6
+      |                        ^
+      |                        |
+      |                        long unsigned int
+In file included from user/custom_5.c:3:
+./user/user.h:36:19: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+   36 | int madvise(void *base, int len, int advise);
+      |             ~~~~~~^~~~
+user/custom_5.c:40:24: warning: passing argument 1 of ‘madvise’ makes pointer from integer without a cast [-Wint-conversion]
+   40 |   madvise((uint64) ptr + 3*PG_SIZE, 4*PG_SIZE,  MADV_WILLNEED); //willneed 6 7 8 9
+      |                        ^
+      |                        |
+      |                        long unsigned int
+In file included from user/custom_5.c:3:
+./user/user.h:36:19: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+   36 | int madvise(void *base, int len, int advise);
+      |             ~~~~~~^~~~
+user/custom_5.c:47:23: warning: passing argument 1 of ‘madvise’ makes pointer from integer without a cast [-Wint-conversion]
+   47 |  madvise((uint64) ptr + (i-3)*PG_SIZE, PG_SIZE,  MADV_PIN);
+      |                       ^
+      |                       |
+      |                       long unsigned int
+In file included from user/custom_5.c:3:
+./user/user.h:36:19: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+   36 | int madvise(void *base, int len, int advise);
+      |             ~~~~~~^~~~
+user/custom_5.c:53:24: warning: passing argument 1 of ‘madvise’ makes pointer from integer without a cast [-Wint-conversion]
+   53 |   madvise((uint64) ptr + 14*PG_SIZE, PG_SIZE,  MADV_WILLNEED); //willneed 17
+      |                        ^
+      |                        |
+      |                        long unsigned int
+In file included from user/custom_5.c:3:
+./user/user.h:36:19: note: expected ‘void *’ but argument is of type ‘long unsigned int’
+   36 | int madvise(void *base, int len, int advise);
+      |             ~~~~~~^~~~
+nmeta 46 (boot, super, log blocks 30 inode blocks 13, bitmap blocks 1) blocks 954 total 1000
+balloc: first 878 blocks have been allocated
+balloc: write bitmap block at sector 45
+*** Now run 'gdb' in another window.
+
+xv6 kernel is booting
+
+hart 2 starting
+hart 1 starting
+init: starting sh
+$ mp2_1
+page table 0x0000000087f49000
++-- 0: pte=0x0000000087f49000 va=0x0000000000000000 pa=0x0000000087f45000 V
+|   +-- 0: pte=0x0000000087f45000 va=0x0000000000000000 pa=0x0000000087f44000 V
+|       +-- 0: pte=0x0000000087f44000 va=0x0000000000000000 pa=0x0000000087f46000 V R W X U
+|       +-- 1: pte=0x0000000087f44008 va=0x0000000000001000 pa=0x0000000087f43000 V R W X
+|       +-- 2: pte=0x0000000087f44010 va=0x0000000000002000 pa=0x0000000087f42000 V R W X U D
++-- 255: pte=0x0000000087f497f8 va=0x0000003fc0000000 pa=0x0000000087f48000 V
+    +-- 511: pte=0x0000000087f48ff8 va=0x0000003fffe00000 pa=0x0000000087f47000 V
+        +-- 510: pte=0x0000000087f47ff0 va=0x0000003fffffe000 pa=0x0000000087f65000 V R W D
+        +-- 511: pte=0x0000000087f47ff8 va=0x0000003ffffff000 pa=0x0000000080007000 V R X
+$ qemu-system-riscv64: terminating on signal 15 from pid 45823 (make)
